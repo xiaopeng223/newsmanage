@@ -1,7 +1,12 @@
 <template>
   <div>login</div>
+  <button @click="handleLogin">login</button>
 </template>
 
-<script setup></script>
+<script setup>
+const handleLogin = () => {
+  localStorage.setItem("token", "lm");
+};
+</script>
 
 <style lang="scss" scoped></style>
