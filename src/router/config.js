@@ -8,6 +8,7 @@ import NewsAdd from '@/views/news-manage/NewsAdd.vue'
 import NewsList from '@/views/news-manage/NewsList.vue'
 import ProductAdd from '@/views/product-manage/ProductAdd.vue'
 import ProductList from '@/views/product-manage/ProductList.vue'
+import NotFound from '@/views/notfound/NotFound.vue'
 const routes = [
     {
         path: '/index',
@@ -41,5 +42,14 @@ const routes = [
         path: '/product-manage/newsproduct',
         component:ProductList
     },
+    {
+        path: '/',
+        redirect:"/index"
+    },
+    {
+        path: "/:pathMatch(.*)*",
+        name:"NotFound",
+        component:NotFound
+    }
 ]
 export default routes
