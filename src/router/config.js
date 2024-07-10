@@ -39,7 +39,7 @@ const routes = [
         component:ProductAdd
     },
     {
-        path: '/product-manage/newsproduct',
+        path: '/product-manage/productlist',
         component:ProductList
     },
     {

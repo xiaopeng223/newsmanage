@@ -28,7 +28,11 @@
           />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm(ruleFormRef)">
+          <el-button
+            type="primary"
+            size="large"
+            @click="submitForm(ruleFormRef)"
+          >
             登录
           </el-button>
         </el-form-item>
@@ -41,6 +45,7 @@
 import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
+import axios from "axios";
 const loginForm = reactive({
   username: "",
   password: "",
@@ -63,7 +68,9 @@ const submitForm = () => {
     if (valid) {
       console.log(loginForm);
       localStorage.setItem("token", "lm");
-
+      axios.get("/users").then((res) => {
+        console.log(res.data);
+      });
       router.push("/index");
     }
   });
@@ -180,5 +187,9 @@ const options = {
 }
 ::v-deep .el-form-item__label {
   color: white;
+}
+::v-deep .el-button {
+  width: 400px;
+  margin-left: 60px;
 }
 </style>
